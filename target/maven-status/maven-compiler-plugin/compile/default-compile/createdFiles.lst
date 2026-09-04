@@ -1,6 +1,7 @@
-com\melodybeats\view\User$1.class
-com\melodybeats\view\User$4.class
-java\melodybeats\Melodybeats.class
-com\melodybeats\view\User$2.class
-com\melodybeats\view\User$3.class
-com\melodybeats\view\User.class
+views\User.class
+classes\DBConnection.class
+views\User$3.class
+views\User$1.class
+views\User$4.class
+classes\Melodybeats.class
+views\User$2.class

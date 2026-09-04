@@ -2,12 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.melodybeats.view;
+package views;
 
-/**
- *
- * @author kithruV
- */
 public class User extends javax.swing.JFrame {
 
     /**

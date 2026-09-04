@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package java.melodybeats;
+package classes;
 
 
 public class Melodybeats {

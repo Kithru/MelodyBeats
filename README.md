@@ -1,3 +1,3 @@
-# POS
+# MelodyBeats
 
 ## KV

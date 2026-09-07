@@ -13,9 +13,9 @@ public class DBConnection {
     private static final String URL =
             "jdbc:sqlserver://localhost:1433;databaseName=MelodyBeats;encrypt=true;trustServerCertificate=true";
 
-    private static final String USER = "sa";
+    private static final String USER = "Test";
 
-    private static final String PASSWORD = "your_password";
+    private static final String PASSWORD = "1234";
 
     public static Connection getConnection() {
 

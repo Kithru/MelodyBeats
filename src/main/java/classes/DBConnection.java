@@ -11,26 +11,18 @@ import java.sql.SQLException;
 public class DBConnection {
 
     private static final String URL =
-            "jdbc:sqlserver://localhost:1433;databaseName=MelodyBeats;encrypt=true;trustServerCertificate=true";
+            "jdbc:sqlserver://localhost:1434;"
+            + "databaseName=MelodyBeats;"
+            + "encrypt=true;"
+            + "trustServerCertificate=true";
 
     private static final String USER = "Test";
-    private static final String PASSWORD = "1234";
+    private static final String PASSWORD = "MelodyBeats@123";
 
     public static Connection getConnection() {
 
-        try {
+        try {return DriverManager.getConnection( URL, USER, PASSWORD );
 
-            Connection con = DriverManager.getConnection(
-                    URL,
-                    USER,
-                    PASSWORD
-            );
-
-            System.out.println("Database Connected Successfully!");
-
-            return con;
-
-            
         } catch (SQLException e) {
 
             System.out.println("Database Connection Failed!");

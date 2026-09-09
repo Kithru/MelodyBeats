@@ -84,6 +84,11 @@ public class User extends javax.swing.JFrame {
 
         saveUserDetails.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         saveUserDetails.setText("Save");
+        saveUserDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveUserDetailsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -188,6 +193,115 @@ public class User extends javax.swing.JFrame {
     private void confirmpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmpasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_confirmpasswordActionPerformed
+
+    private void saveUserDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveUserDetailsActionPerformed
+        String userName = name.getText().trim();
+        String contact = contactNo.getText().trim();
+        String address = userAddress.getText().trim();
+        String userUsername = username.getText().trim();
+
+        String userPassword = new String(password.getPassword());
+        String confirmPassword = new String(confirmpassword.getPassword());
+
+        if (userName.isEmpty()
+                || contact.isEmpty()
+                || address.isEmpty()
+                || userUsername.isEmpty()
+                || userPassword.isEmpty()
+                || confirmPassword.isEmpty()) {
+
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Please fill all fields.",
+                    "Validation Error",
+                    javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+
+            return;
+        }
+
+        if (!userPassword.equals(confirmPassword)) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Password and Confirm Password do not match.",
+                    "Validation Error",
+                    javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+
+            return;
+        }
+
+        String sql = "INSERT INTO users " + "(name, contact_no, address, username, password) "
+                + "VALUES (?, ?, ?, ?, ?)";
+
+        try {
+
+            // Get database connection
+            java.sql.Connection con = classes.DBConnection.getConnection();
+
+            if (con == null) {
+
+                javax.swing.JOptionPane.showMessageDialog(
+                        this,
+                        "Database connection failed!",
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE
+                );
+
+                return;
+            }
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1, userName);
+            pst.setString(2, contact);
+            pst.setString(3, address);
+            pst.setString(4, userUsername);
+            pst.setString(5, userPassword);
+
+            // Execute INSERT
+            int result = pst.executeUpdate();
+
+            if (result > 0) {
+
+                javax.swing.JOptionPane.showMessageDialog(
+                        this,
+                        "User saved successfully!",
+                        "Success",
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE
+                );
+                name.setText("");
+                contactNo.setText("");
+                userAddress.setText("");
+                username.setText("");
+                password.setText("");
+                confirmpassword.setText("");
+            }
+            pst.close();
+            con.close();
+
+        } catch (java.sql.SQLException e) {
+            if (e.getErrorCode() == 2627 || e.getErrorCode() == 2601) {
+
+                javax.swing.JOptionPane.showMessageDialog(
+                        this,
+                        "Username already exists!",
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE
+                );
+
+            } else {
+
+                javax.swing.JOptionPane.showMessageDialog(
+                        this,
+                        "Database error: " + e.getMessage(),
+                        "Database Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE
+                );
+
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_saveUserDetailsActionPerformed
 
     /**
      * @param args the command line arguments

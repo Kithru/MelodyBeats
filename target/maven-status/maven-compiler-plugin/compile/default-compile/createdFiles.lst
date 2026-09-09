@@ -1,5 +1,7 @@
 views\User.class
+classes\Testconnection.class
 classes\DBConnection.class
+views\User$5.class
 views\User$3.class
 views\User$1.class
 views\User$4.class

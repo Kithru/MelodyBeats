@@ -37,6 +37,8 @@ public class User extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         confirmpassword = new javax.swing.JPasswordField();
         saveUserDetails = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        userTypes = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +92,11 @@ public class User extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setText("UserType");
+
+        userTypes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select User Type", "Store Manager", "Assistant" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -112,13 +119,15 @@ public class User extends javax.swing.JFrame {
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(36, 36, 36)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(contactNo, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
-                                    .addComponent(userAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                                    .addComponent(contactNo)
+                                    .addComponent(userAddress)
                                     .addComponent(confirmpassword)
-                                    .addComponent(password)))))
+                                    .addComponent(password)
+                                    .addComponent(userTypes, 0, 232, Short.MAX_VALUE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(350, 350, 350)
                         .addComponent(saveUserDetails)))
@@ -149,31 +158,39 @@ public class User extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(userTypes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(password, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(confirmpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(36, 36, 36)
                 .addComponent(saveUserDetails)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -199,6 +216,7 @@ public class User extends javax.swing.JFrame {
         String contact = contactNo.getText().trim();
         String address = userAddress.getText().trim();
         String userUsername = username.getText().trim();
+        String selectedUserType = (String) userTypes.getSelectedItem();
 
         String userPassword = new String(password.getPassword());
         String confirmPassword = new String(confirmpassword.getPassword());
@@ -220,6 +238,18 @@ public class User extends javax.swing.JFrame {
             return;
         }
 
+        if (selectedUserType == null || selectedUserType.equals("Select User Type")) {
+
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Please select a user type.",
+                    "Validation Error",
+                    javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+
+            return;
+        }
+
         if (!userPassword.equals(confirmPassword)) {
             javax.swing.JOptionPane.showMessageDialog(
                     this,
@@ -231,12 +261,24 @@ public class User extends javax.swing.JFrame {
             return;
         }
 
-        String sql = "INSERT INTO users " + "(name, contact_no, address, username, password) "
-                + "VALUES (?, ?, ?, ?, ?)";
+        int userTypeValue;
+        switch (selectedUserType) {
+            case "Store Manager":
+                userTypeValue = 1;
+                break;
+            case "Assistant":
+                userTypeValue = 2;
+                break;
+            default:
+                userTypeValue = 0;
+        }
+
+        String sql = "INSERT INTO users "
+                + "(name, contact_no, address, username, password, user_type) "
+                + "VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
 
-            // Get database connection
             java.sql.Connection con = classes.DBConnection.getConnection();
 
             if (con == null) {
@@ -257,8 +299,8 @@ public class User extends javax.swing.JFrame {
             pst.setString(3, address);
             pst.setString(4, userUsername);
             pst.setString(5, userPassword);
+            pst.setInt(6, userTypeValue);
 
-            // Execute INSERT
             int result = pst.executeUpdate();
 
             if (result > 0) {
@@ -275,6 +317,7 @@ public class User extends javax.swing.JFrame {
                 username.setText("");
                 password.setText("");
                 confirmpassword.setText("");
+                userTypes.setSelectedIndex(0);
             }
             pst.close();
             con.close();
@@ -348,11 +391,13 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField name;
     private javax.swing.JPasswordField password;
     private javax.swing.JButton saveUserDetails;
     private javax.swing.JTextField userAddress;
+    private javax.swing.JComboBox<String> userTypes;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

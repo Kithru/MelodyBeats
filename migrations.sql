@@ -10,5 +10,7 @@ CREATE TABLE users (
     address VARCHAR(255),
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    created_at DATETIME DEFAULT GETDATE()
+    user_type VARCHAR(20) NOT NULL DEFAULT 'USER',
+    created_at DATETIME NOT NULL DEFAULT GETDATE(),
+    updated_at DATETIME NOT NULL DEFAULT GETDATE()
 );

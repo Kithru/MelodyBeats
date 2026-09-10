@@ -4,10 +4,6 @@
  */
 package views;
 
-/**
- *
- * @author kithruV
- */
 public class StoreManagerMenu extends javax.swing.JFrame {
 
     /**
@@ -15,6 +11,13 @@ public class StoreManagerMenu extends javax.swing.JFrame {
      */
     public StoreManagerMenu() {
         initComponents();
+        addButtonEffects(addUsers);
+        addButtonEffects(searchUsers);
+        addButtonEffects(addMusicItem);
+        addButtonEffects(manageMusicItems);
+        addButtonEffects(addPromotion);
+        addButtonEffects(searchPromotions);
+        addButtonEffects(searchSalesDetails);
     }
 
     /**
@@ -135,6 +138,9 @@ public class StoreManagerMenu extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 searchSalesDetailsMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                searchSalesDetailsMouseExited(evt);
+            }
         });
         searchSalesDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,8 +245,12 @@ public class StoreManagerMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_searchSalesDetailsActionPerformed
 
     private void searchSalesDetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchSalesDetailsMouseEntered
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_searchSalesDetailsMouseEntered
+
+    private void searchSalesDetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchSalesDetailsMouseExited
+       
+    }//GEN-LAST:event_searchSalesDetailsMouseExited
 
     /**
      * @param args the command line arguments
@@ -273,6 +283,47 @@ public class StoreManagerMenu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new StoreManagerMenu().setVisible(true);
+            }
+        });
+    }
+    
+  
+
+    private void addButtonEffects(javax.swing.JButton button) {
+        final java.awt.Color normalColor = new java.awt.Color(0, 153, 255);
+        final java.awt.Color hoverColor = new java.awt.Color(0, 110, 200);
+        final java.awt.Color pressedColor = new java.awt.Color(0, 80, 160);
+
+        button.setOpaque(true);
+        button.setContentAreaFilled(true);
+        button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button.setBackground(hoverColor);
+            }
+
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button.setBackground(normalColor);
+            }
+
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                button.setBackground(pressedColor);
+            }
+
+            @Override
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                // If mouse is still over the button when released, go back to hover color;
+                // otherwise return to normal (handles drag-off-and-release correctly)
+                if (button.contains(evt.getPoint())) {
+                    button.setBackground(hoverColor);
+                } else {
+                    button.setBackground(normalColor);
+                }
             }
         });
     }

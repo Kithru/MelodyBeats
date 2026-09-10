@@ -4,10 +4,9 @@
  */
 package views;
 
-/**
- *
- * @author kithruV
- */
+import views.StoreManagerMenu;
+import views.AssistantMenu;
+
 public class login extends javax.swing.JFrame {
 
     /**
@@ -122,10 +121,9 @@ public class login extends javax.swing.JFrame {
             return;
         }
 
-        String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+        String sql = "SELECT user_type FROM users WHERE username = ? AND password = ?";
 
-        try (java.sql.Connection conn = classes.DBConnection.getConnection();
-             java.sql.PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (java.sql.Connection conn = classes.DBConnection.getConnection()) {
 
             if (conn == null) {
                 javax.swing.JOptionPane.showMessageDialog(this,
@@ -135,21 +133,40 @@ public class login extends javax.swing.JFrame {
                 return;
             }
 
-            stmt.setString(1, username);
-            stmt.setString(2, password);
+            try (java.sql.PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            try (java.sql.ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    javax.swing.JOptionPane.showMessageDialog(this,
-                            "Login successful! Welcome, " + username + ".",
-                            "Success",
-                            javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                stmt.setString(1, username);
+                stmt.setString(2, password);
 
-                } else {
-                    javax.swing.JOptionPane.showMessageDialog(this,
-                            "Invalid username or password.",
-                            "Login Failed",
-                            javax.swing.JOptionPane.ERROR_MESSAGE);
+                try (java.sql.ResultSet rs = stmt.executeQuery()) {
+                    if (rs.next()) {
+
+                        int userType = rs.getInt("user_type");
+
+                        javax.swing.JOptionPane.showMessageDialog(this,
+                                "Login successful! Welcome, " + username + ".",
+                                "Success",
+                                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+                        if (userType == 1) {
+                            new StoreManagerMenu().setVisible(true);
+                            this.dispose();
+                        } else if (userType == 2) {
+                            new AssistantMenu().setVisible(true);
+                            this.dispose();
+                        } else {
+                            javax.swing.JOptionPane.showMessageDialog(this,
+                                    "Unknown user type. Contact administrator.",
+                                    "Error",
+                                    javax.swing.JOptionPane.ERROR_MESSAGE);
+                        }
+
+                    } else {
+                        javax.swing.JOptionPane.showMessageDialog(this,
+                                "Invalid username or password.",
+                                "Login Failed",
+                                javax.swing.JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
 

@@ -3,11 +3,12 @@
 package classes;
 
 import views.User;
+import views.login;
 
 public class Melodybeats {
 
     public static void main(String[] args) {
-        User user = new User();
-        user.setVisible(true);
+        login login = new login();
+        login.setVisible(true);
     }
 }

@@ -62,6 +62,11 @@ public class StoreManagerMenu extends javax.swing.JFrame {
         addUsers.setForeground(new java.awt.Color(255, 255, 255));
         addUsers.setText("Add New User");
         addUsers.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        addUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addUsersActionPerformed(evt);
+            }
+        });
 
         searchUsers.setBackground(new java.awt.Color(0, 153, 255));
         searchUsers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -221,7 +226,8 @@ public class StoreManagerMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUsersActionPerformed
-        // TODO add your handling code here:
+        new SearchUserDetails().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_searchUsersActionPerformed
 
     private void addMusicItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMusicItemActionPerformed
@@ -251,6 +257,11 @@ public class StoreManagerMenu extends javax.swing.JFrame {
     private void searchSalesDetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchSalesDetailsMouseExited
        
     }//GEN-LAST:event_searchSalesDetailsMouseExited
+
+    private void addUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUsersActionPerformed
+        new User().setVisible(true);
+        this.dispose();     
+    }//GEN-LAST:event_addUsersActionPerformed
 
     /**
      * @param args the command line arguments

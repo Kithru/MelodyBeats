@@ -3,11 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package views;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.SwingWorker;
+import java.util.ArrayList;
+import java.util.List;
+import views.User;
+import views.SearchUserDetails;
+import views.StoreManagerMenu;
 
-/**
- *
- * @author kithruV
- */
 public class SearchUserDetails extends javax.swing.JFrame {
 
     /**
@@ -28,19 +36,26 @@ public class SearchUserDetails extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         searchUserDetails = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnSeardchUserDetails = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        searchUserTable = new javax.swing.JTable();
+        btnUserSearchAll = new javax.swing.JButton();
+        btnSearchUSerBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Search User Details");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setText("Search");
+        btnSeardchUserDetails.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSeardchUserDetails.setText("Search");
+        btnSeardchUserDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeardchUserDetailsActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        searchUserTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -48,38 +63,63 @@ public class SearchUserDetails extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Name", "Contact Number", "User Name", "User Type"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(searchUserTable);
+
+        btnUserSearchAll.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUserSearchAll.setText("Search All");
+        btnUserSearchAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserSearchAllActionPerformed(evt);
+            }
+        });
+
+        btnSearchUSerBack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSearchUSerBack.setText("Back");
+        btnSearchUSerBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchUSerBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(179, 179, 179)
+                        .addComponent(jLabel1)
+                        .addGap(134, 134, 134)
+                        .addComponent(btnSearchUSerBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(searchUserDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(45, 45, 45)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                            .addGap(33, 33, 33)
+                            .addComponent(btnSeardchUserDetails)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnUserSearchAll))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(15, 15, 15)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(btnSearchUSerBack))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchUserDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btnSeardchUserDetails)
+                    .addComponent(btnUserSearchAll))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -88,6 +128,138 @@ public class SearchUserDetails extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSeardchUserDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeardchUserDetailsActionPerformed
+        String searchInput = searchUserDetails.getText().trim();
+        if (searchInput.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                this, 
+                "Please enter a name, contact number, or username to search.", 
+                "Validation Error", 
+                JOptionPane.WARNING_MESSAGE
+            );
+            searchUserDetails.requestFocus();
+            return;
+        }
+        loadUserDataToTable(searchInput);
+    }//GEN-LAST:event_btnSeardchUserDetailsActionPerformed
+
+    private void btnUserSearchAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserSearchAllActionPerformed
+        searchUserDetails.setText(""); // Clear search field when viewing all users
+        loadAllUsersToTable();
+    }//GEN-LAST:event_btnUserSearchAllActionPerformed
+
+    private void btnSearchUSerBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchUSerBackActionPerformed
+            new StoreManagerMenu().setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_btnSearchUSerBackActionPerformed
+    private String getFormattedUserType(String rawUserType) {
+        if (rawUserType == null) return "Unknown";
+        switch (rawUserType.trim()) {
+            case "1":
+            case "STORE_KEEPER":
+                return "Store Keeper";
+            case "2":
+            case "ASSISTANT":
+                return "Assistant";
+            default:
+                return rawUserType; // Fallback to raw DB value if unmatched
+        }
+    }
+    private void loadUserDataToTable(String keyword) {
+        String sql = "SELECT name, contact_no, username, user_type FROM users "
+                   + "WHERE name LIKE ? OR contact_no LIKE ? OR username LIKE ?";
+
+        DefaultTableModel model = (DefaultTableModel) searchUserTable.getModel();
+        model.setRowCount(0); 
+
+        try (Connection con = classes.DBConnection.getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            String searchPattern = "%" + keyword + "%";
+            stmt.setString(1, searchPattern);
+            stmt.setString(2, searchPattern);
+            stmt.setString(3, searchPattern);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                boolean hasResults = false;
+
+                while (rs.next()) {
+                    hasResults = true;
+                    String name = rs.getString("name");
+                    String contactNo = rs.getString("contact_no");
+                    String username = rs.getString("username");
+
+                    // Format user type manually (1 -> Store Keeper, 2 -> Assistant)
+                    String rawUserType = rs.getString("user_type");
+                    String userType = getFormattedUserType(rawUserType);
+
+                    model.addRow(new Object[]{name, contactNo, username, userType});
+                }
+
+                if (!hasResults) {
+                    JOptionPane.showMessageDialog(
+                        this, 
+                        "No user records found matching: " + keyword, 
+                        "No Results", 
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(
+                this, 
+                "Error loading user details: " + e.getMessage(), 
+                "Database Error", 
+                JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }
+
+    private void loadAllUsersToTable() {
+        String sql = "SELECT name, contact_no, username, user_type FROM users";
+
+        DefaultTableModel model = (DefaultTableModel) searchUserTable.getModel();
+        model.setRowCount(0);
+
+        try (Connection con = classes.DBConnection.getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            boolean hasResults = false;
+
+            while (rs.next()) {
+                hasResults = true;
+                String name = rs.getString("name");
+                String contactNo = rs.getString("contact_no");
+                String username = rs.getString("username");
+
+                String rawUserType = rs.getString("user_type");
+                String userType = getFormattedUserType(rawUserType);
+
+                model.addRow(new Object[]{name, contactNo, username, userType});
+            }
+
+            if (!hasResults) {
+                JOptionPane.showMessageDialog(
+                    this, 
+                    "No user records found in the database.", 
+                    "No Data", 
+                    JOptionPane.INFORMATION_MESSAGE
+                );
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(
+                this, 
+                "Error loading all user details: " + e.getMessage(), 
+                "Database Error", 
+                JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -124,10 +296,12 @@ public class SearchUserDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSearchUSerBack;
+    private javax.swing.JButton btnSeardchUserDetails;
+    private javax.swing.JButton btnUserSearchAll;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField searchUserDetails;
+    private javax.swing.JTable searchUserTable;
     // End of variables declaration//GEN-END:variables
 }

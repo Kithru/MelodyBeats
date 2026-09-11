@@ -231,11 +231,13 @@ public class StoreManagerMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_searchUsersActionPerformed
 
     private void addMusicItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMusicItemActionPerformed
-        // TODO add your handling code here:
+        new AddMusicItems().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_addMusicItemActionPerformed
 
     private void manageMusicItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageMusicItemsActionPerformed
-        // TODO add your handling code here:
+        new SearchMusicItems().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_manageMusicItemsActionPerformed
 
     private void searchPromotionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPromotionsActionPerformed

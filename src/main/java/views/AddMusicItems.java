@@ -4,10 +4,6 @@
  */
 package views;
 
-/**
- *
- * @author kithruV
- */
 public class AddMusicItems extends javax.swing.JFrame {
 
     /**

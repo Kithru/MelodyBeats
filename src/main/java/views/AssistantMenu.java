@@ -4,10 +4,7 @@
  */
 package views;
 
-/**
- *
- * @author kithruV
- */
+
 public class AssistantMenu extends javax.swing.JFrame {
 
     /**

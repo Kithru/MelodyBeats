@@ -4,10 +4,6 @@
  */
 package views;
 
-/**
- *
- * @author kithruV
- */
 public class SearchMusicItems extends javax.swing.JFrame {
 
     /**

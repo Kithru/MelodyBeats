@@ -14,9 +14,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class SearchMusicItems extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SearchMusicItems
-     */
     public SearchMusicItems() {
         initComponents();
     }

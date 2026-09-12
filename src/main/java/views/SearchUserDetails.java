@@ -18,9 +18,6 @@ import views.StoreManagerMenu;
 
 public class SearchUserDetails extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SearchUserDetails
-     */
     public SearchUserDetails() {
         initComponents();
     }

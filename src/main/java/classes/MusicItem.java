@@ -24,7 +24,6 @@ public class MusicItem {
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             Connection con = DBConnection.getConnection();
-
             PreparedStatement pst = con.prepareStatement(sql);
 
             pst.setString(1, title);

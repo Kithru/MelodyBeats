@@ -7,9 +7,6 @@ import views.StoreManagerMenu;
 
 public class User extends javax.swing.JFrame {
 
-    /**
-     * Creates new form User
-     */
     public User() {
         initComponents();
     }
@@ -267,6 +264,7 @@ public class User extends javax.swing.JFrame {
         String sql = "INSERT INTO users " + "(name, contact_no, address, username, password, user_type) " + "VALUES (?, ?, ?, ?, ?, ?)";
         try {
             java.sql.Connection con = classes.DBConnection.getConnection();
+            
             if (con == null) {
                 javax.swing.JOptionPane.showMessageDialog(
                         this,

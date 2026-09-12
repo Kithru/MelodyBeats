@@ -218,27 +218,22 @@ public class User extends javax.swing.JFrame {
         String address = userAddress.getText().trim();
         String userUsername = username.getText().trim();
         String selectedUserType = (String) userTypes.getSelectedItem();
-
         String userPassword = new String(password.getPassword());
         String confirmPassword = new String(confirmpassword.getPassword());
-
         if (userName.isEmpty()
                 || contact.isEmpty()
                 || address.isEmpty()
                 || userUsername.isEmpty()
                 || userPassword.isEmpty()
                 || confirmPassword.isEmpty()) {
-
             javax.swing.JOptionPane.showMessageDialog(
                     this,
                     "Please fill all fields.",
                     "Validation Error",
                     javax.swing.JOptionPane.WARNING_MESSAGE
             );
-
             return;
         }
-
         if (selectedUserType == null || selectedUserType.equals("Select User Type")) {
 
             javax.swing.JOptionPane.showMessageDialog(
@@ -247,10 +242,8 @@ public class User extends javax.swing.JFrame {
                     "Validation Error",
                     javax.swing.JOptionPane.WARNING_MESSAGE
             );
-
             return;
         }
-
         if (!userPassword.equals(confirmPassword)) {
             javax.swing.JOptionPane.showMessageDialog(
                     this,
@@ -258,10 +251,8 @@ public class User extends javax.swing.JFrame {
                     "Validation Error",
                     javax.swing.JOptionPane.WARNING_MESSAGE
             );
-
             return;
         }
-
         int userTypeValue;
         switch (selectedUserType) {
             case "Store Manager":
@@ -273,37 +264,26 @@ public class User extends javax.swing.JFrame {
             default:
                 userTypeValue = 0;
         }
-
-        String sql = "INSERT INTO users "
-                + "(name, contact_no, address, username, password, user_type) "
-                + "VALUES (?, ?, ?, ?, ?, ?)";
-
+        String sql = "INSERT INTO users " + "(name, contact_no, address, username, password, user_type) " + "VALUES (?, ?, ?, ?, ?, ?)";
         try {
-
             java.sql.Connection con = classes.DBConnection.getConnection();
-
             if (con == null) {
-
                 javax.swing.JOptionPane.showMessageDialog(
                         this,
                         "Database connection failed!",
                         "Error",
                         javax.swing.JOptionPane.ERROR_MESSAGE
                 );
-
                 return;
             }
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
-
             pst.setString(1, userName);
             pst.setString(2, contact);
             pst.setString(3, address);
             pst.setString(4, userUsername);
             pst.setString(5, userPassword);
             pst.setInt(6, userTypeValue);
-
             int result = pst.executeUpdate();
-
             if (result > 0) {
 
                 javax.swing.JOptionPane.showMessageDialog(
@@ -322,7 +302,6 @@ public class User extends javax.swing.JFrame {
             }
             pst.close();
             con.close();
-
         } catch (java.sql.SQLException e) {
             if (e.getErrorCode() == 2627 || e.getErrorCode() == 2601) {
 
@@ -332,7 +311,6 @@ public class User extends javax.swing.JFrame {
                         "Error",
                         javax.swing.JOptionPane.ERROR_MESSAGE
                 );
-
             } else {
 
                 javax.swing.JOptionPane.showMessageDialog(
@@ -341,7 +319,6 @@ public class User extends javax.swing.JFrame {
                         "Database Error",
                         javax.swing.JOptionPane.ERROR_MESSAGE
                 );
-
                 e.printStackTrace();
             }
         }

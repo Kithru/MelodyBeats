@@ -23,31 +23,198 @@ public class AssistantMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel5 = new javax.swing.JLabel();
+        searchPromotions = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        searchSalesDetails = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        searchUsers = new javax.swing.JButton();
+        addMusicItem = new javax.swing.JButton();
+        manageMusicItems = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Assistant");
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Sales Reports");
+
+        searchPromotions.setBackground(new java.awt.Color(0, 153, 255));
+        searchPromotions.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        searchPromotions.setForeground(new java.awt.Color(255, 255, 255));
+        searchPromotions.setText("Search Promotion Details");
+        searchPromotions.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        searchPromotions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchPromotionsActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("Assitant Menu");
+
+        searchSalesDetails.setBackground(new java.awt.Color(0, 153, 255));
+        searchSalesDetails.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        searchSalesDetails.setForeground(new java.awt.Color(255, 255, 255));
+        searchSalesDetails.setText("Search Sales Details");
+        searchSalesDetails.setToolTipText("");
+        searchSalesDetails.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        searchSalesDetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                searchSalesDetailsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                searchSalesDetailsMouseExited(evt);
+            }
+        });
+        searchSalesDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchSalesDetailsActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("User Management");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("Pricing Management");
+
+        searchUsers.setBackground(new java.awt.Color(0, 153, 255));
+        searchUsers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        searchUsers.setForeground(new java.awt.Color(255, 255, 255));
+        searchUsers.setText("Search User Details");
+        searchUsers.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        searchUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchUsersActionPerformed(evt);
+            }
+        });
+
+        addMusicItem.setBackground(new java.awt.Color(0, 153, 255));
+        addMusicItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addMusicItem.setForeground(new java.awt.Color(255, 255, 255));
+        addMusicItem.setText("Add Music Item");
+        addMusicItem.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        addMusicItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMusicItemActionPerformed(evt);
+            }
+        });
+
+        manageMusicItems.setBackground(new java.awt.Color(0, 153, 255));
+        manageMusicItems.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        manageMusicItems.setForeground(new java.awt.Color(255, 255, 255));
+        manageMusicItems.setText("Search Items");
+        manageMusicItems.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        manageMusicItems.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageMusicItemsActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setText("Promotion Details");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(148, 148, 148)
+                .addGap(61, 61, 61)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 266, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(74, 74, 74))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(searchPromotions, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(searchSalesDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addMusicItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageMusicItems, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(263, 263, 263)
                 .addComponent(jLabel1)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(addMusicItem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(searchUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageMusicItems, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchPromotions, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchSalesDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchPromotionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPromotionsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchPromotionsActionPerformed
+
+    private void searchSalesDetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchSalesDetailsMouseEntered
+
+    }//GEN-LAST:event_searchSalesDetailsMouseEntered
+
+    private void searchSalesDetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchSalesDetailsMouseExited
+
+    }//GEN-LAST:event_searchSalesDetailsMouseExited
+
+    private void searchSalesDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchSalesDetailsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchSalesDetailsActionPerformed
+
+    private void searchUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUsersActionPerformed
+        new SearchUserDetails().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_searchUsersActionPerformed
+
+    private void addMusicItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMusicItemActionPerformed
+        new AddMusicItems().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_addMusicItemActionPerformed
+
+    private void manageMusicItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageMusicItemsActionPerformed
+        new SearchMusicItems().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_manageMusicItemsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -85,6 +252,15 @@ public class AssistantMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addMusicItem;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton manageMusicItems;
+    private javax.swing.JButton searchPromotions;
+    private javax.swing.JButton searchSalesDetails;
+    private javax.swing.JButton searchUsers;
     // End of variables declaration//GEN-END:variables
 }

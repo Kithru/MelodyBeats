@@ -251,7 +251,6 @@ public class ManageMusicItems extends javax.swing.JFrame {
         String yearStr = txtMusicReleaseYearManage.getText().trim();
         String description = txtMusicDescriptionManage.getText().trim();
 
-        // 1. Validation checks
         if (title.isEmpty() || artist.isEmpty() || genre.equals("Select Genre") || format.equals("Select Formate")) {
             JOptionPane.showMessageDialog(this, "Please fill in all required fields and select valid dropdown options.", "Validation Error", JOptionPane.WARNING_MESSAGE);
             return;
@@ -262,7 +261,6 @@ public class ManageMusicItems extends javax.swing.JFrame {
             int quantity = Integer.parseInt(quantityStr);
             int releaseYear = Integer.parseInt(yearStr);
 
-            // Updated column name in UPDATE query: stock_quantity = ?
             String updateQuery = "UPDATE music_items SET artist = ?, genre = ?, format = ?, price = ?, stock_quantity = ?, release_year = ?, description = ? WHERE title = ?";
 
             try (Connection conn = DBConnection.getConnection();

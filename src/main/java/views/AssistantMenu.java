@@ -82,7 +82,7 @@ public class AssistantMenu extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("Pricing Management");
+        jLabel3.setText("Music Item Management");
 
         searchUsers.setBackground(new java.awt.Color(0, 153, 255));
         searchUsers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -128,7 +128,7 @@ public class AssistantMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 266, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(74, 74, 74))
             .addGroup(layout.createSequentialGroup()

@@ -2,7 +2,6 @@
 
 package classes;
 
-import views.User;
 import views.login;
 
 public class Melodybeats {

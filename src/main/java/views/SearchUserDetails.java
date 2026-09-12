@@ -93,8 +93,8 @@ public class SearchUserDetails extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(179, 179, 179)
                         .addComponent(jLabel1)
-                        .addGap(134, 134, 134)
-                        .addComponent(btnSearchUSerBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(122, 122, 122)
+                        .addComponent(btnSearchUSerBack))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -156,8 +156,8 @@ public class SearchUserDetails extends javax.swing.JFrame {
         if (rawUserType == null) return "Unknown";
         switch (rawUserType.trim()) {
             case "1":
-            case "STORE_KEEPER":
-                return "Store Keeper";
+            case "STORE_MANAGER":
+                return "Store Manager";
             case "2":
             case "ASSISTANT":
                 return "Assistant";
@@ -189,7 +189,7 @@ public class SearchUserDetails extends javax.swing.JFrame {
                     String contactNo = rs.getString("contact_no");
                     String username = rs.getString("username");
 
-                    // Format user type manually (1 -> Store Keeper, 2 -> Assistant)
+                    // Format user type manually (1 -> Store Manager, 2 -> Assistant)
                     String rawUserType = rs.getString("user_type");
                     String userType = getFormattedUserType(rawUserType);
 

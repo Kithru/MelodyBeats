@@ -38,6 +38,9 @@ public class SearchMusicItems extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+<<<<<<< HEAD
+        jLabel1.setText("Search Music Item Details");
+=======
         jLabel1.setText("Search Music Items");
 
         btnSearchMusicItems.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -76,12 +79,18 @@ public class SearchMusicItems extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(tblSearchMusicItems);
+>>>>>>> 52eb1c52e9b3aceaec0d58d7be716764bc582046
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+                .addGap(120, 120, 120)
+                .addComponent(jLabel1)
+                .addContainerGap(139, Short.MAX_VALUE))
+=======
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(181, 181, 181)
@@ -99,10 +108,16 @@ public class SearchMusicItems extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(20, Short.MAX_VALUE))
+>>>>>>> 52eb1c52e9b3aceaec0d58d7be716764bc582046
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addContainerGap(340, Short.MAX_VALUE))
+=======
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
@@ -118,6 +133,7 @@ public class SearchMusicItems extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
+>>>>>>> 52eb1c52e9b3aceaec0d58d7be716764bc582046
         );
 
         pack();

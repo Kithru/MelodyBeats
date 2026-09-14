@@ -4,15 +4,16 @@
  */
 package views;
 
-/**
- *
- * @author kithruV
- */
+import classes.DBConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class SearchMusicItems extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SearchMusicItems
-     */
     public SearchMusicItems() {
         initComponents();
     }
@@ -27,32 +28,241 @@ public class SearchMusicItems extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        txtSearchMusicItems = new javax.swing.JTextField();
+        btnSearchMusicItems = new javax.swing.JButton();
+        btmSearchAllMusicItems = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblSearchMusicItems = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+<<<<<<< HEAD
         jLabel1.setText("Search Music Item Details");
+=======
+        jLabel1.setText("Search Music Items");
+
+        btnSearchMusicItems.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSearchMusicItems.setText("Search");
+        btnSearchMusicItems.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchMusicItemsActionPerformed(evt);
+            }
+        });
+
+        btmSearchAllMusicItems.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btmSearchAllMusicItems.setText("Search All");
+        btmSearchAllMusicItems.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btmSearchAllMusicItemsActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        tblSearchMusicItems.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Title", "Artist", "Genre", "Format", "Price", "Quantity", "Release Year"
+            }
+        ));
+        jScrollPane1.setViewportView(tblSearchMusicItems);
+>>>>>>> 52eb1c52e9b3aceaec0d58d7be716764bc582046
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(120, 120, 120)
                 .addComponent(jLabel1)
                 .addContainerGap(139, Short.MAX_VALUE))
+=======
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSearchMusicItems, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(67, 67, 67)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnSearchMusicItems, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)
+                                .addComponent(btmSearchAllMusicItems))
+                            .addComponent(jButton3)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
+>>>>>>> 52eb1c52e9b3aceaec0d58d7be716764bc582046
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(35, 35, 35)
                 .addComponent(jLabel1)
                 .addContainerGap(340, Short.MAX_VALUE))
+=======
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton3)))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearchMusicItems, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchMusicItems)
+                    .addComponent(btmSearchAllMusicItems))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+>>>>>>> 52eb1c52e9b3aceaec0d58d7be716764bc582046
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new StoreManagerMenu().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnSearchMusicItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchMusicItemsActionPerformed
+        searchMusicItems();
+    }//GEN-LAST:event_btnSearchMusicItemsActionPerformed
+
+    private void btmSearchAllMusicItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmSearchAllMusicItemsActionPerformed
+        searchAllMusicItems();
+    }//GEN-LAST:event_btmSearchAllMusicItemsActionPerformed
+
+    private void searchMusicItems() {
+        String searchText = txtSearchMusicItems.getText().trim();
+
+        if (searchText.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Please enter a title, artist, genre, or format to search.",
+                    "Search",
+                    JOptionPane.WARNING_MESSAGE
+            );
+            return;
+        }
+        String sql = "SELECT title, artist, genre, format, price, "
+                + "stock_quantity, release_year "
+                + "FROM music_items "
+                + "WHERE is_active = 1 "
+                + "AND (title LIKE ? "
+                + "OR artist LIKE ? "
+                + "OR genre LIKE ? "
+                + "OR format LIKE ?) "
+                + "ORDER BY title";
+        try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            String keyword = "%" + searchText + "%";
+            pst.setString(1, keyword);
+            pst.setString(2, keyword);
+            pst.setString(3, keyword);
+            pst.setString(4, keyword);
+            ResultSet rs = pst.executeQuery();
+            DefaultTableModel model =
+                    (DefaultTableModel) tblSearchMusicItems.getModel();
+
+            model.setRowCount(0);
+            boolean found = false;
+            while (rs.next()) {
+                found = true;
+                model.addRow(new Object[]{
+                    rs.getString("title"),
+                    rs.getString("artist"),
+                    rs.getString("genre"),
+                    rs.getString("format"),
+                    rs.getBigDecimal("price"),
+                    rs.getInt("stock_quantity"),
+                    rs.getObject("release_year")
+                });
+            }
+            rs.close();
+            pst.close();
+            con.close();
+            if (!found) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "No music items found.",
+                        "Search Result",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Error searching music items:\n" + e.getMessage(),
+                    "Database Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }
+    
+    private void searchAllMusicItems() {
+        String sql = "SELECT title, artist, genre, format, price, " + "stock_quantity, release_year " + "FROM music_items " + "WHERE is_active = 1 " + "ORDER BY title";
+        try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            DefaultTableModel model =
+                    (DefaultTableModel) tblSearchMusicItems.getModel();
+            model.setRowCount(0);
+            boolean found = false;
+            while (rs.next()) {
+                found = true;
+                model.addRow(new Object[]{
+                    rs.getString("title"),
+                    rs.getString("artist"),
+                    rs.getString("genre"),
+                    rs.getString("format"),
+                    rs.getBigDecimal("price"),
+                    rs.getInt("stock_quantity"),
+                    rs.getObject("release_year")
+                });
+            }
+            rs.close();
+            pst.close();
+            con.close();
+            if (!found) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "No music items available.",
+                        "Search Result",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Error loading music items:\n" + e.getMessage(),
+                    "Database Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -89,6 +299,12 @@ public class SearchMusicItems extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btmSearchAllMusicItems;
+    private javax.swing.JButton btnSearchMusicItems;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblSearchMusicItems;
+    private javax.swing.JTextField txtSearchMusicItems;
     // End of variables declaration//GEN-END:variables
 }

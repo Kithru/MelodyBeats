@@ -112,7 +112,6 @@ public class login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String username = loginUsername.getText().trim();
         String password = new String(loginPassword.getPassword());
-
         if (username.isEmpty() || password.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this,
                     "Please enter both username and password.",
@@ -120,11 +119,8 @@ public class login extends javax.swing.JFrame {
                     javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
-
         String sql = "SELECT user_type FROM users WHERE username = ? AND password = ?";
-
         try (java.sql.Connection conn = classes.DBConnection.getConnection()) {
-
             if (conn == null) {
                 javax.swing.JOptionPane.showMessageDialog(this,
                         "Could not connect to the database.",
@@ -132,22 +128,16 @@ public class login extends javax.swing.JFrame {
                         javax.swing.JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
             try (java.sql.PreparedStatement stmt = conn.prepareStatement(sql)) {
-
                 stmt.setString(1, username);
                 stmt.setString(2, password);
-
                 try (java.sql.ResultSet rs = stmt.executeQuery()) {
                     if (rs.next()) {
-
                         int userType = rs.getInt("user_type");
-
                         javax.swing.JOptionPane.showMessageDialog(this,
                                 "Login successful! Welcome, " + username + ".",
                                 "Success",
                                 javax.swing.JOptionPane.INFORMATION_MESSAGE);
-
                         if (userType == 1) {
                             new StoreManagerMenu().setVisible(true);
                             this.dispose();
@@ -160,7 +150,6 @@ public class login extends javax.swing.JFrame {
                                     "Error",
                                     javax.swing.JOptionPane.ERROR_MESSAGE);
                         }
-
                     } else {
                         javax.swing.JOptionPane.showMessageDialog(this,
                                 "Invalid username or password.",
@@ -169,7 +158,6 @@ public class login extends javax.swing.JFrame {
                     }
                 }
             }
-
         } catch (java.sql.SQLException e) {
             e.printStackTrace();
             javax.swing.JOptionPane.showMessageDialog(this,

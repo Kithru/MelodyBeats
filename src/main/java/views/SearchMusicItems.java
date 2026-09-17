@@ -148,6 +148,7 @@ public class SearchMusicItems extends javax.swing.JFrame {
         searchMusicItems();
     }//GEN-LAST:event_btnSearchMusicItemsActionPerformed
 
+    
     private void btmSearchAllMusicItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmSearchAllMusicItemsActionPerformed
         searchAllMusicItems();
     }//GEN-LAST:event_btmSearchAllMusicItemsActionPerformed

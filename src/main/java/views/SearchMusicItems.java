@@ -144,12 +144,10 @@ public class SearchMusicItems extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    
     private void btnSearchMusicItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchMusicItemsActionPerformed
         searchMusicItems();
     }//GEN-LAST:event_btnSearchMusicItemsActionPerformed
 
-    
     private void btmSearchAllMusicItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmSearchAllMusicItemsActionPerformed
         searchAllMusicItems();
     }//GEN-LAST:event_btmSearchAllMusicItemsActionPerformed
